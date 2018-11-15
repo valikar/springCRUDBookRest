@@ -1,0 +1,50 @@
+REST API for CRUD operation with Books, using the Spring,Hibernate,MySQL and Maven.
+
+Requirements:
+JDK :- 1.8
+Mysql:- 5.4
+Maven:-3.5.3 or later
+Tomcat:- 9.0.10 or later
+
+Steps to Setup:
+1. Clone the application
+git clone https://github.com/valikar/springCRUDBookRest.git
+2. Change mysql username and password as per your installation
+open src/main/java/lp/student/bartko/config/
+change 26 row "dataSource.setUsername("root")": enter username as per you mysql installation insted of "root"; 
+change 27 row "dataSource.setPassword("root")": enter password as per you mysql installation insted of "root";  
+3.Build and run the app using maven
+The app will start running at http://localhost:8080. Go to this link in browser to see WEB interface. You can test the API by it.
+
+API Documentation:
+To test the REST API , you can use WEB interface or use any rest client like postman etc.
+  1.Create book api (sample)
+URL :- localhost:8080/book
+header :- content-type :- application/json
+method :- post
+body :- {
+"name" : "title of the book",
+"autor" : "name of the autor"
+}
+After hitting this api , new book must be created inside the rest database's product table. you can check this by firing the sql query on mysql terminal.
+  2.Get all books api(sample)
+URL :- localhost:8080/book
+method:- get
+You will get the information about all books.
+3.Get book api (sample)
+URL :- localhost:8080/book/{id}
+method:- get
+Provide the id of user in the url , you will get its all the information.
+  4.Update book api (sample)
+URL :- localhost:8080/book
+header :- content-type :- application/json
+method :- put
+body :- {
+"name" : "title of the book",
+"autor" : "name of the autor"
+}
+After hitting this api , book must be updated inside the rest database's product table. you can check this by firing the sql query on mysql terminal.
+  5. Delete book api (sample)
+URL :- localhost:8080/book/{id}
+method:- delete
+Provide the id of user in the url , you will delete its all the information.
